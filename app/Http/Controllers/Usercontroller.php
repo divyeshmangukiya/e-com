@@ -12,7 +12,7 @@ class Usercontroller extends Controller
 {
     function login(Request $req)
     {
-        return $req->input();
+        // return $req->input();
 
         $user = User::where(['email'=>$req->email])->first();
 
