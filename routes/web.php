@@ -30,4 +30,6 @@ Route::post('/login',[Usercontroller::class,'login']);
 Route::get('/',[Productcontroller::class,'index']);
 Route::get('detail/{id}',[Productcontroller::class,'detail']);
 Route::get('search',[Productcontroller::class,'search']);
+Route::get('cartlist',[Productcontroller::class,'cartlist']);
 Route::post('/add_to_cart',[Productcontroller::class,'addtocart']);
+Route::get('removecart/{id}',[Productcontroller::class,'removecart']);

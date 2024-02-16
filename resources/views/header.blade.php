@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Productcontroller;
 use Illuminate\Support\Facades\Session;
+use App\Models\Cart;
 
 $total = 0;
 
@@ -9,6 +10,11 @@ if (Session::has('user')) {
   // $total = Productcontroller::cartItem();
 }
 
+    $userId = Session::get('user')['id'];
+    $cartCount = \App\Models\Cart::where('user_id', $userId)->count();
+
+
+// dd($cartCount);
 
 ?>
 <nav class="navbar navbar-default">
@@ -39,7 +45,7 @@ if (Session::has('user')) {
       </form>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Add TO Cart</a></li>
+        <li><a href="/cartlist">Add TO Cart {{$cartCount}}</a></li>
         @if(Session::has('user'))
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"> {{Session::get('user')['name']}}
@@ -48,7 +54,7 @@ if (Session::has('user')) {
 
             <li><a href="/logout">logout</a></li>
             @else
-            <li><a href=" /login"></a>Login</li>
+            <li><a href="/login">Login</a></li>
             @endif
           </ul>
         </li>
