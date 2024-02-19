@@ -33,3 +33,5 @@ Route::get('search',[Productcontroller::class,'search']);
 Route::get('cartlist',[Productcontroller::class,'cartlist']);
 Route::post('/add_to_cart',[Productcontroller::class,'addtocart']);
 Route::get('removecart/{id}',[Productcontroller::class,'removecart']);
+Route::get('ordernow',[Productcontroller::class,'ordernow']);
+Route::post('orderplace',[Productcontroller::class,'orderplace']);

@@ -10,7 +10,7 @@ if (Session::has('user')) {
   // $total = Productcontroller::cartItem();
 }
 
-    $userId = Session::get('user')['id'];
+    $userId = Session::get('user')['id']??'1';
     $cartCount = \App\Models\Cart::where('user_id', $userId)->count();
 
 
